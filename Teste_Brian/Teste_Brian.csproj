@@ -108,6 +108,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\SystemContext.cs" />
+    <Compile Include="Converter\Conexao.cs" />
+    <Compile Include="Converter\Query.cs" />
     <Compile Include="Entities\Email.cs" />
     <Compile Include="Entities\Endereco.cs" />
     <Compile Include="Entities\Entidade.cs" />
@@ -126,6 +128,14 @@
     <Compile Include="Migrations\202003041117204_first.designer.cs">
       <DependentUpon>202003041117204_first.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003042128567_Inserindo_telefone2.cs" />
+    <Compile Include="Migrations\202003042128567_Inserindo_telefone2.designer.cs">
+      <DependentUpon>202003042128567_Inserindo_telefone2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003042202599_Adicionando_Cel.cs" />
+    <Compile Include="Migrations\202003042202599_Adicionando_Cel.designer.cs">
+      <DependentUpon>202003042202599_Adicionando_Cel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +144,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003041117204_first.resx">
       <DependentUpon>202003041117204_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003042128567_Inserindo_telefone2.resx">
+      <DependentUpon>202003042128567_Inserindo_telefone2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003042202599_Adicionando_Cel.resx">
+      <DependentUpon>202003042202599_Adicionando_Cel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

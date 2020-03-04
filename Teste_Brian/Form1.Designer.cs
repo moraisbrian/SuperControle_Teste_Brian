@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnConverterBanco = new System.Windows.Forms.Button();
             this.dtpAdicionarNasc = new System.Windows.Forms.DateTimePicker();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.txtAdicionarCpf = new System.Windows.Forms.TextBox();
@@ -40,8 +41,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnEditar = new System.Windows.Forms.Button();
             this.txtEditarEmailEnd = new System.Windows.Forms.TextBox();
-            this.txtEditarNumTel = new System.Windows.Forms.TextBox();
-            this.txtEditarDdd = new System.Windows.Forms.TextBox();
+            this.txtEditarNumTel1 = new System.Windows.Forms.TextBox();
+            this.txtEditarDdd1 = new System.Windows.Forms.TextBox();
             this.cmbEditarEntidade = new System.Windows.Forms.ComboBox();
             this.txtEditarUf = new System.Windows.Forms.TextBox();
             this.txtEditarMunicipio = new System.Windows.Forms.TextBox();
@@ -60,7 +61,7 @@
             this.lblEditarBairro = new System.Windows.Forms.Label();
             this.lblEditarNumero = new System.Windows.Forms.Label();
             this.lblEditarLogradouro = new System.Windows.Forms.Label();
-            this.lblEditarDdd = new System.Windows.Forms.Label();
+            this.lblEditarDdd1 = new System.Windows.Forms.Label();
             this.lblEditarTipo = new System.Windows.Forms.Label();
             this.lblEditarEndereco = new System.Windows.Forms.Label();
             this.lblEditarEntidade = new System.Windows.Forms.Label();
@@ -68,6 +69,12 @@
             this.dgvConsultar = new System.Windows.Forms.DataGridView();
             this.btnConsultarPesquisar = new System.Windows.Forms.Button();
             this.txtConsultarPesquisar = new System.Windows.Forms.TextBox();
+            this.txtEditarNumTel2 = new System.Windows.Forms.TextBox();
+            this.txtEditarDdd2 = new System.Windows.Forms.TextBox();
+            this.lblEditarNumTel2 = new System.Windows.Forms.Label();
+            this.lblEditarDdd2 = new System.Windows.Forms.Label();
+            this.txtEditarCel = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -84,11 +91,13 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(762, 379);
+            this.tabControl1.Size = new System.Drawing.Size(765, 472);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnConverterBanco);
             this.tabPage1.Controls.Add(this.dtpAdicionarNasc);
             this.tabPage1.Controls.Add(this.btnAdicionar);
             this.tabPage1.Controls.Add(this.txtAdicionarCpf);
@@ -103,6 +112,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Adicionar";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnConverterBanco
+            // 
+            this.btnConverterBanco.Location = new System.Drawing.Point(25, 182);
+            this.btnConverterBanco.Name = "btnConverterBanco";
+            this.btnConverterBanco.Size = new System.Drawing.Size(151, 58);
+            this.btnConverterBanco.TabIndex = 8;
+            this.btnConverterBanco.Text = "Converter Banco de Dados";
+            this.btnConverterBanco.UseVisualStyleBackColor = true;
+            this.btnConverterBanco.Click += new System.EventHandler(this.btnConverterBanco_Click);
             // 
             // dtpAdicionarNasc
             // 
@@ -119,6 +138,7 @@
             this.btnAdicionar.TabIndex = 6;
             this.btnAdicionar.Text = "Inserir";
             this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // txtAdicionarCpf
             // 
@@ -163,10 +183,16 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txtEditarCel);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.txtEditarNumTel2);
+            this.tabPage2.Controls.Add(this.txtEditarDdd2);
+            this.tabPage2.Controls.Add(this.lblEditarNumTel2);
+            this.tabPage2.Controls.Add(this.lblEditarDdd2);
             this.tabPage2.Controls.Add(this.btnEditar);
             this.tabPage2.Controls.Add(this.txtEditarEmailEnd);
-            this.tabPage2.Controls.Add(this.txtEditarNumTel);
-            this.tabPage2.Controls.Add(this.txtEditarDdd);
+            this.tabPage2.Controls.Add(this.txtEditarNumTel1);
+            this.tabPage2.Controls.Add(this.txtEditarDdd1);
             this.tabPage2.Controls.Add(this.cmbEditarEntidade);
             this.tabPage2.Controls.Add(this.txtEditarUf);
             this.tabPage2.Controls.Add(this.txtEditarMunicipio);
@@ -185,47 +211,48 @@
             this.tabPage2.Controls.Add(this.lblEditarBairro);
             this.tabPage2.Controls.Add(this.lblEditarNumero);
             this.tabPage2.Controls.Add(this.lblEditarLogradouro);
-            this.tabPage2.Controls.Add(this.lblEditarDdd);
+            this.tabPage2.Controls.Add(this.lblEditarDdd1);
             this.tabPage2.Controls.Add(this.lblEditarTipo);
             this.tabPage2.Controls.Add(this.lblEditarEndereco);
             this.tabPage2.Controls.Add(this.lblEditarEntidade);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(754, 353);
+            this.tabPage2.Size = new System.Drawing.Size(757, 446);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Editar";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(596, 268);
+            this.btnEditar.Location = new System.Drawing.Point(596, 351);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(126, 46);
             this.btnEditar.TabIndex = 25;
             this.btnEditar.Text = "Inserir";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // txtEditarEmailEnd
             // 
-            this.txtEditarEmailEnd.Location = new System.Drawing.Point(80, 294);
+            this.txtEditarEmailEnd.Location = new System.Drawing.Point(76, 388);
             this.txtEditarEmailEnd.Name = "txtEditarEmailEnd";
             this.txtEditarEmailEnd.Size = new System.Drawing.Size(200, 20);
             this.txtEditarEmailEnd.TabIndex = 24;
             // 
-            // txtEditarNumTel
+            // txtEditarNumTel1
             // 
-            this.txtEditarNumTel.Location = new System.Drawing.Point(209, 225);
-            this.txtEditarNumTel.Name = "txtEditarNumTel";
-            this.txtEditarNumTel.Size = new System.Drawing.Size(160, 20);
-            this.txtEditarNumTel.TabIndex = 23;
+            this.txtEditarNumTel1.Location = new System.Drawing.Point(228, 225);
+            this.txtEditarNumTel1.Name = "txtEditarNumTel1";
+            this.txtEditarNumTel1.Size = new System.Drawing.Size(160, 20);
+            this.txtEditarNumTel1.TabIndex = 23;
             // 
-            // txtEditarDdd
+            // txtEditarDdd1
             // 
-            this.txtEditarDdd.Location = new System.Drawing.Point(57, 225);
-            this.txtEditarDdd.Name = "txtEditarDdd";
-            this.txtEditarDdd.Size = new System.Drawing.Size(93, 20);
-            this.txtEditarDdd.TabIndex = 22;
+            this.txtEditarDdd1.Location = new System.Drawing.Point(67, 225);
+            this.txtEditarDdd1.Name = "txtEditarDdd1";
+            this.txtEditarDdd1.Size = new System.Drawing.Size(93, 20);
+            this.txtEditarDdd1.TabIndex = 22;
             // 
             // cmbEditarEntidade
             // 
@@ -234,6 +261,7 @@
             this.cmbEditarEntidade.Name = "cmbEditarEntidade";
             this.cmbEditarEntidade.Size = new System.Drawing.Size(336, 21);
             this.cmbEditarEntidade.TabIndex = 21;
+            this.cmbEditarEntidade.SelectedIndexChanged += new System.EventHandler(this.cmbEditarEntidade_SelectedIndexChanged);
             // 
             // txtEditarUf
             // 
@@ -287,7 +315,7 @@
             // lblEditarEmailEnd
             // 
             this.lblEditarEmailEnd.AutoSize = true;
-            this.lblEditarEmailEnd.Location = new System.Drawing.Point(18, 297);
+            this.lblEditarEmailEnd.Location = new System.Drawing.Point(14, 391);
             this.lblEditarEmailEnd.Name = "lblEditarEmailEnd";
             this.lblEditarEmailEnd.Size = new System.Drawing.Size(56, 13);
             this.lblEditarEmailEnd.TabIndex = 13;
@@ -296,7 +324,7 @@
             // lblEditarEmail
             // 
             this.lblEditarEmail.AutoSize = true;
-            this.lblEditarEmail.Location = new System.Drawing.Point(18, 274);
+            this.lblEditarEmail.Location = new System.Drawing.Point(14, 368);
             this.lblEditarEmail.Name = "lblEditarEmail";
             this.lblEditarEmail.Size = new System.Drawing.Size(35, 13);
             this.lblEditarEmail.TabIndex = 12;
@@ -305,11 +333,11 @@
             // lblEditarNumTel
             // 
             this.lblEditarNumTel.AutoSize = true;
-            this.lblEditarNumTel.Location = new System.Drawing.Point(156, 228);
+            this.lblEditarNumTel.Location = new System.Drawing.Point(166, 228);
             this.lblEditarNumTel.Name = "lblEditarNumTel";
-            this.lblEditarNumTel.Size = new System.Drawing.Size(47, 13);
+            this.lblEditarNumTel.Size = new System.Drawing.Size(56, 13);
             this.lblEditarNumTel.TabIndex = 11;
-            this.lblEditarNumTel.Text = "Número:";
+            this.lblEditarNumTel.Text = "Número 1:";
             // 
             // lblEditarTelefone
             // 
@@ -374,14 +402,14 @@
             this.lblEditarLogradouro.TabIndex = 4;
             this.lblEditarLogradouro.Text = "Logradouro:";
             // 
-            // lblEditarDdd
+            // lblEditarDdd1
             // 
-            this.lblEditarDdd.AutoSize = true;
-            this.lblEditarDdd.Location = new System.Drawing.Point(17, 228);
-            this.lblEditarDdd.Name = "lblEditarDdd";
-            this.lblEditarDdd.Size = new System.Drawing.Size(34, 13);
-            this.lblEditarDdd.TabIndex = 3;
-            this.lblEditarDdd.Text = "DDD:";
+            this.lblEditarDdd1.AutoSize = true;
+            this.lblEditarDdd1.Location = new System.Drawing.Point(17, 228);
+            this.lblEditarDdd1.Name = "lblEditarDdd1";
+            this.lblEditarDdd1.Size = new System.Drawing.Size(43, 13);
+            this.lblEditarDdd1.TabIndex = 3;
+            this.lblEditarDdd1.Text = "DDD 1:";
             // 
             // lblEditarTipo
             // 
@@ -450,6 +478,7 @@
             this.btnConsultarPesquisar.TabIndex = 1;
             this.btnConsultarPesquisar.Text = "Pesquisar";
             this.btnConsultarPesquisar.UseVisualStyleBackColor = true;
+            this.btnConsultarPesquisar.Click += new System.EventHandler(this.btnConsultarPesquisar_Click);
             // 
             // txtConsultarPesquisar
             // 
@@ -458,13 +487,61 @@
             this.txtConsultarPesquisar.Size = new System.Drawing.Size(314, 20);
             this.txtConsultarPesquisar.TabIndex = 0;
             // 
+            // txtEditarNumTel2
+            // 
+            this.txtEditarNumTel2.Location = new System.Drawing.Point(228, 268);
+            this.txtEditarNumTel2.Name = "txtEditarNumTel2";
+            this.txtEditarNumTel2.Size = new System.Drawing.Size(160, 20);
+            this.txtEditarNumTel2.TabIndex = 29;
+            // 
+            // txtEditarDdd2
+            // 
+            this.txtEditarDdd2.Location = new System.Drawing.Point(67, 268);
+            this.txtEditarDdd2.Name = "txtEditarDdd2";
+            this.txtEditarDdd2.Size = new System.Drawing.Size(93, 20);
+            this.txtEditarDdd2.TabIndex = 28;
+            // 
+            // lblEditarNumTel2
+            // 
+            this.lblEditarNumTel2.AutoSize = true;
+            this.lblEditarNumTel2.Location = new System.Drawing.Point(166, 271);
+            this.lblEditarNumTel2.Name = "lblEditarNumTel2";
+            this.lblEditarNumTel2.Size = new System.Drawing.Size(56, 13);
+            this.lblEditarNumTel2.TabIndex = 27;
+            this.lblEditarNumTel2.Text = "Número 2:";
+            // 
+            // lblEditarDdd2
+            // 
+            this.lblEditarDdd2.AutoSize = true;
+            this.lblEditarDdd2.Location = new System.Drawing.Point(17, 271);
+            this.lblEditarDdd2.Name = "lblEditarDdd2";
+            this.lblEditarDdd2.Size = new System.Drawing.Size(43, 13);
+            this.lblEditarDdd2.TabIndex = 26;
+            this.lblEditarDdd2.Text = "DDD 2:";
+            // 
+            // txtEditarCel
+            // 
+            this.txtEditarCel.Location = new System.Drawing.Point(67, 311);
+            this.txtEditarCel.Name = "txtEditarCel";
+            this.txtEditarCel.Size = new System.Drawing.Size(160, 20);
+            this.txtEditarCel.TabIndex = 33;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 314);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "Número:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 379);
+            this.ClientSize = new System.Drawing.Size(765, 472);
             this.Controls.Add(this.tabControl1);
-            this.MinimumSize = new System.Drawing.Size(778, 418);
+            this.MinimumSize = new System.Drawing.Size(781, 511);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.tabControl1.ResumeLayout(false);
@@ -491,8 +568,8 @@
         private System.Windows.Forms.Label lblAdicionarNome;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox txtEditarEmailEnd;
-        private System.Windows.Forms.TextBox txtEditarNumTel;
-        private System.Windows.Forms.TextBox txtEditarDdd;
+        private System.Windows.Forms.TextBox txtEditarNumTel1;
+        private System.Windows.Forms.TextBox txtEditarDdd1;
         private System.Windows.Forms.ComboBox cmbEditarEntidade;
         private System.Windows.Forms.TextBox txtEditarUf;
         private System.Windows.Forms.TextBox txtEditarMunicipio;
@@ -511,7 +588,7 @@
         private System.Windows.Forms.Label lblEditarBairro;
         private System.Windows.Forms.Label lblEditarNumero;
         private System.Windows.Forms.Label lblEditarLogradouro;
-        private System.Windows.Forms.Label lblEditarDdd;
+        private System.Windows.Forms.Label lblEditarDdd1;
         private System.Windows.Forms.Label lblEditarTipo;
         private System.Windows.Forms.Label lblEditarEndereco;
         private System.Windows.Forms.Label lblEditarEntidade;
@@ -521,6 +598,13 @@
         private System.Windows.Forms.Button btnConsultarPesquisar;
         private System.Windows.Forms.TextBox txtConsultarPesquisar;
         private System.Windows.Forms.DateTimePicker dtpAdicionarNasc;
+        private System.Windows.Forms.Button btnConverterBanco;
+        private System.Windows.Forms.TextBox txtEditarCel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtEditarNumTel2;
+        private System.Windows.Forms.TextBox txtEditarDdd2;
+        private System.Windows.Forms.Label lblEditarNumTel2;
+        private System.Windows.Forms.Label lblEditarDdd2;
     }
 }
 

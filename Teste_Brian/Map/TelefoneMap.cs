@@ -16,13 +16,26 @@ namespace Teste_Brian.Map
 
             HasKey(x => x.Id);
 
-            Property(x => x.Ddd)
-                .HasColumnName("Ddd")
+            Property(x => x.Ddd1)
+                .HasColumnName("Ddd1")
                 .HasMaxLength(2)
                 .IsFixedLength();
 
-            Property(x => x.Numero)
-                .HasColumnName("Numero")
+            Property(x => x.Numero1)
+                .HasColumnName("Numero1")
+                .HasMaxLength(9);
+
+            Property(x => x.Ddd2)
+                .HasColumnName("Ddd2")
+                .HasMaxLength(2)
+                .IsFixedLength();
+
+            Property(x => x.Numero2)
+                .HasColumnName("Numero2")
+                .HasMaxLength(9);
+
+            Property(x => x.Cel)
+                .HasColumnName("Cel")
                 .HasMaxLength(9);
         }
     }
