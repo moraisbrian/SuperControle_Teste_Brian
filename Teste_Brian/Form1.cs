@@ -159,26 +159,83 @@ namespace Teste_Brian
                 entidade.Email.Endereco = txtEditarEmailEnd.Text;
 
             string erros = string.Empty;
-            if (entidade.Endereco.Logradouro.Length > 30)
-                erros = "Logradouro não deve ultrapassar 30 caracteres\n";
-            if (entidade.Endereco.TipoLogradouro.Length > 10)
-                erros += "Tipo de logradouro não pode ultrapassar 10 caracteres\n";
-            if (entidade.Endereco.Bairro.Length > 15)
-                erros += "Bairro não pode ultrapassar 15 caracteres\n";
-            if (entidade.Endereco.Cep.Length != 8)
-                erros += "CEP deve conter 8 dígitos\n";
-            if (entidade.Endereco.Municipio.Length > 30)
-                erros += "Municipio não pode ultrapassar 30 caracteres\n";
-            if (entidade.Endereco.Uf.Length != 2)
-                erros += "UF deve conter 2 caracteres\n";
-            if (entidade.Telefone.Ddd1.Length != 2 || entidade.Telefone.Ddd2.Length != 2)
-                erros += "DDD deve conter 2 dígitos\n";
-            if (entidade.Telefone.Numero1.Length > 9 || entidade.Telefone.Numero2.Length > 9)
-                erros += "Telefone não pode ultrapassar 9 dígitos\n";
-            if (entidade.Telefone.Cel.Length > 9)
-                erros += "Celular não pode ultrapassar 9 dígitos\n";
-            if (entidade.Email.Endereco.Length > 20)
-                erros += "Email não pode ultrapassar 20 caracteres";
+            if (entidade.Endereco != null)
+            {
+                if (!string.IsNullOrEmpty(entidade.Endereco.Logradouro))
+                {
+                    if (entidade.Endereco.Logradouro.Length > 30)
+                        erros = "Logradouro não deve ultrapassar 30 caracteres\n";
+                }
+                if (!string.IsNullOrEmpty(entidade.Endereco.TipoLogradouro))
+                {
+                    if (entidade.Endereco.TipoLogradouro.Length > 10)
+                        erros += "Tipo de logradouro não pode ultrapassar 10 caracteres\n";
+                }
+                if (!string.IsNullOrEmpty(entidade.Endereco.Bairro))
+                {
+                    if (entidade.Endereco.Bairro.Length > 15)
+                        erros += "Bairro não pode ultrapassar 15 caracteres\n";
+                }
+                if (!string.IsNullOrEmpty(entidade.Endereco.Cep))
+                {
+                    if (entidade.Endereco.Cep.Length != 8)
+                        erros += "CEP deve conter 8 dígitos\n";
+                }
+                if (!string.IsNullOrEmpty(entidade.Endereco.Municipio))
+                {
+                    if (entidade.Endereco.Municipio.Length > 30)
+                        erros += "Municipio não pode ultrapassar 30 caracteres\n";
+                }
+                if (!string.IsNullOrEmpty(entidade.Endereco.Uf))
+                {
+                    if (entidade.Endereco.Uf.Length != 2)
+                        erros += "UF deve conter 2 caracteres\n";
+                }
+            }
+            if (entidade.Telefone != null)
+            {
+                bool hasDddError = false;
+                bool hasNumberError = false;
+                if (!string.IsNullOrEmpty(entidade.Telefone.Ddd1))
+                {
+                    if (entidade.Telefone.Ddd1.Length != 2)
+                    {
+                        erros += "DDD deve conter 2 dígitos\n";
+                        hasDddError = true;
+                    }
+                }
+                if (!string.IsNullOrEmpty(entidade.Telefone.Ddd2) && !hasDddError)
+                {
+                    if (entidade.Telefone.Ddd2.Length != 2)
+                        erros += "DDD deve conter 2 dígitos\n";
+                }
+                if (!string.IsNullOrEmpty(entidade.Telefone.Numero1))
+                {
+                    if (entidade.Telefone.Numero1.Length > 9)
+                    {
+                        erros += "Telefone não pode ultrapassar 9 dígitos\n";
+                        hasNumberError = true;
+                    }
+                }
+                if (!string.IsNullOrEmpty(entidade.Telefone.Numero2) && !hasNumberError)
+                {
+                    if (entidade.Telefone.Numero2.Length > 9)
+                        erros += "Telefone não pode ultrapassar 9 dígitos\n";
+                }
+                if (!string.IsNullOrEmpty(entidade.Telefone.Cel))
+                {
+                    if (entidade.Telefone.Cel.Length > 9)
+                        erros += "Celular não pode ultrapassar 9 dígitos\n";
+                }
+            }
+            if (entidade.Email != null)
+            {
+                if (!string.IsNullOrEmpty(entidade.Email.Endereco))
+                {
+                    if (entidade.Email.Endereco.Length > 20)
+                        erros += "Email não pode ultrapassar 20 caracteres";
+                }
+            }
 
             if (erros == string.Empty)
             {
